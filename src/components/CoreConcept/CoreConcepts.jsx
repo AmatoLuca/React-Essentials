@@ -1,5 +1,6 @@
 import CoreConcept from './CoreConcept';
-import { CORE_CONCEPTS } from '../data';
+import { CORE_CONCEPTS } from '../../data';
+import './coreConcepts.css';
 
 export default function CoreConcepts() {
   return (
