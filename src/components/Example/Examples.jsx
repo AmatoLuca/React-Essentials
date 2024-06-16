@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import TabButton from '../TabButton';
-import ExampleSection from './ExampleSection';
+import TabsWrapper from '../Tabs/TabsWrapper';
 import { EXAMPLES } from '../../data';
+import './examples.css';
 
 export default function Examples() {
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -25,34 +26,36 @@ export default function Examples() {
   }
 
   return (
-    <ExampleSection title="Examples">
+    <TabsWrapper title="Examples">
       <menu>
-        <TabButton
-          isSelected={selectedTopic === 'components'}
-          onClick={() => handleSelect('components')}
-        >
-          Components
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === 'jsx'}
-          onClick={() => handleSelect('jsx')}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === 'props'}
-          onClick={() => handleSelect('props')}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === 'state'}
-          onClick={() => handleSelect('state')}
-        >
-          State
-        </TabButton>
+        <TabsWrapper.TabsHeader>
+          <TabButton
+            isSelected={selectedTopic === 'components'}
+            onClick={() => handleSelect('components')}
+          >
+            Components
+          </TabButton>
+          <TabButton
+            isSelected={selectedTopic === 'jsx'}
+            onClick={() => handleSelect('jsx')}
+          >
+            JSX
+          </TabButton>
+          <TabButton
+            isSelected={selectedTopic === 'props'}
+            onClick={() => handleSelect('props')}
+          >
+            Props
+          </TabButton>
+          <TabButton
+            isSelected={selectedTopic === 'state'}
+            onClick={() => handleSelect('state')}
+          >
+            State
+          </TabButton>
+        </TabsWrapper.TabsHeader>
       </menu>
-      {tabContent}
-    </ExampleSection>
+      <TabsWrapper.TabsBody>{tabContent}</TabsWrapper.TabsBody>
+    </TabsWrapper>
   );
 }
